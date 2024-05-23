@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS EmailLog (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  cliente_id INT NOT NULL,
+  cnpj VARCHAR(255),
+  processo VARCHAR(255),
+  di VARCHAR(255),
+  tipo_de_carga VARCHAR(255),
+  origem VARCHAR(255),
+  destino VARCHAR(255),
+  selectedInform VARCHAR(255),
+  emailBody TEXT,
+  recipientEmail VARCHAR(255) NOT NULL,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
