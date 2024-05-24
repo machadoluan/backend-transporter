@@ -31,7 +31,7 @@ app.post('/send', async (req, res) => {
     }
   });
 
-  const subject = `Follow UP: ${selectedInform}`;
+  const subject = `Follow UP - N° Processo: ${processo}`;
 
   try {
     // Aqui vamos iterar sobre todos os destinatários
