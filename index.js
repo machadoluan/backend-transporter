@@ -2,6 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const connection = require('./config/database');
+const multer = require('multer');
 
 const app = express();
 app.use(cors());
@@ -12,15 +13,22 @@ const port = 3000;
 const user = "machado.luandealmeida@gmail.com"; // Substitua pelo seu e-mail
 const pass = "htob epun ysrq pgig"; // Substitua pela sua senha
 
+// Configuração do multer
+const upload = multer({ dest: 'uploads/' }); // Configurar o multer para armazenar arquivos no diretório 'uploads
+
 app.get('/', (req, res) => res.send('Hello! World!'));
 
-app.post('/send', async (req, res) => {
+app.post('/send', upload.array('attachments', 10), async (req, res) => {
+  console.log(req.body);
+
   const recipientEmails = req.body.recipientEmail;
   const { id, cliente, cnpj, processo, di, data, hora, tipo_de_carga, origem, destino, selectedInform } = req.body;
 
   if (!recipientEmails || recipientEmails.length === 0) {
     return res.status(400).send('Nenhum destinatário especificado.');
   }
+
+
 
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -32,6 +40,12 @@ app.post('/send', async (req, res) => {
   });
 
   const subject = `Follow UP - N° Processo: ${processo}`;
+
+  // Preparar anexos para envio
+  const attachments = req.files.map(file => ({
+    filename: file.originalname,
+    path: file.path
+  }))
 
   try {
     // Aqui vamos iterar sobre todos os destinatários
@@ -249,12 +263,15 @@ app.post('/send', async (req, res) => {
             </div>
           </div>`;
       }
+      const ccEmails = ['flaviopcfake@gmail.com', user];
 
       const info = await transporter.sendMail({
         from: user,
-        to: recipientEmail,
+        to: recipientEmails,
+        cc: ccEmails,
         subject: subject,
-        html: updatedEmailBody
+        html: updatedEmailBody,
+        attachments: attachments // Adicionei essa linha
       });
 
       if (checkResults.length > 0) {
