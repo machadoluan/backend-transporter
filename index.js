@@ -5,7 +5,9 @@ const connection = require('./config/database');
 const multer = require('multer');
 
 const app = express();
-app.use(cors());
+app.use(cors(
+  { origin: 'https://painel-transporthos.vercel.app' }
+));
 app.use(express.json());
 
 const port = 3000;
