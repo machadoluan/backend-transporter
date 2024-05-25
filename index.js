@@ -22,11 +22,12 @@ const user = "machado.luandealmeida@gmail.com"; // Substitua pelo seu e-mail
 const pass = "htob epun ysrq pgig"; // Substitua pela sua senha
 
 // Configuração do multer
-const upload = multer({ dest: 'uploads/' }); // Configurar o multer para armazenar arquivos no diretório 'uploads
+// const upload = multer({ dest: 'uploads/' }); // Configurar o multer para armazenar arquivos no diretório 'uploads
 
 app.get('/', (req, res) => res.send('Hello! World!'));
 
-app.post('/send', upload.array('attachments', 10), async (req, res) => {
+//app.post('/send', upload.array('attachments', 10), async (req, res) => {
+app.post('/send', async (req, res) => {
   console.log(req.body);
 
   const recipientEmails = req.body.recipientEmail;
@@ -50,10 +51,10 @@ app.post('/send', upload.array('attachments', 10), async (req, res) => {
   const subject = `Follow UP - N° Processo: ${processo}`;
 
   // Preparar anexos para envio
-  const attachments = req.files.map(file => ({
-    filename: file.originalname,
-    path: file.path
-  }))
+  // const attachments = req.files.map(file => ({
+  //   filename: file.originalname,
+  //   path: file.path
+  // }))
 
   try {
     // Aqui vamos iterar sobre todos os destinatários
@@ -279,7 +280,7 @@ app.post('/send', upload.array('attachments', 10), async (req, res) => {
         cc: ccEmails,
         subject: subject,
         html: updatedEmailBody,
-        attachments: attachments // Adicionei essa linha
+        // attachments: attachments // Adicionei essa linha.
       });
 
       if (checkResults.length > 0) {
