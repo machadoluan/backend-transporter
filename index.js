@@ -18,8 +18,8 @@ app.use(express.json());
 
 const port = 3000;
 
-const user = "machado.luandealmeida@gmail.com"; // Substitua pelo seu e-mail
-const pass = "htob epun ysrq pgig"; // Substitua pela sua senha
+const user = "operacional@transporthos.com.br"; // Substitua pelo seu e-mail
+const pass = "TRP@!@eslog508890"; // Substitua pela sua senha
 
 app.get('/', (req, res) => res.send('Hello! World!'));
 
