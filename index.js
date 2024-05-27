@@ -18,11 +18,8 @@ app.use(express.json());
 
 const port = 3000;
 
-const user = "operacional@transporthos.com.br"; // Substitua pelo seu e-mail
-const pass = "TRP@!@eslog508890"; // Substitua pela sua senha
-
-// Configuração do multer
-// const upload = multer({ dest: 'uploads/' }); // Configurar o multer para armazenar arquivos no diretório 'uploads
+const user = "machado.luandealmeida@gmail.com"; // Substitua pelo seu e-mail
+const pass = "htob epun ysrq pgig"; // Substitua pela sua senha
 
 app.get('/', (req, res) => res.send('Hello! World!'));
 
@@ -272,23 +269,21 @@ app.post('/send', async (req, res) => {
             </div>
           </div>`;
       }
-      const ccEmails = ['flaviopcfake@gmail.com'];
 
       const attachments = imagePreviews.map((imageBase64, index) => ({
-        filename: `anexo ${index + 1}.jpg`,
-        content: imageBase64.split(',')[1],
+        filename: `image${index + 1}.jpg`,
+        content: imageBase64.split(',')[1], // Remove o prefixo data:image/jpeg;base64,
         encoding: 'base64'
       }));
 
       const info = await transporter.sendMail({
         from: user,
         to: recipientEmail,
-        cc: ccEmails,
         subject: subject,
         html: updatedEmailBody,
         attachments: attachments
       });
-
+      
       if (checkResults.length > 0) {
         const updateQuery = `UPDATE EmailLog 
                              SET emailBody = ?
