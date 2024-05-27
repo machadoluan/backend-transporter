@@ -18,8 +18,8 @@ app.use(express.json());
 
 const port = 3000;
 
-const user = "machado.luandealmeida@gmail.com"; // Substitua pelo seu e-mail
-const pass = "htob epun ysrq pgig"; // Substitua pela sua senha
+const user = "operacional@transporthos.com.br"; // Substitua pelo seu e-mail
+const pass = "TRP@!@eslog508890"; // Substitua pela sua senha
 
 // Configuração do multer
 // const upload = multer({ dest: 'uploads/' }); // Configurar o multer para armazenar arquivos no diretório 'uploads
@@ -40,7 +40,7 @@ app.post('/send', async (req, res) => {
 
 
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: "smtp.office365.com",
     port: 587,
     auth: {
       user,
@@ -272,7 +272,7 @@ app.post('/send', async (req, res) => {
             </div>
           </div>`;
       }
-      const ccEmails = ['flaviopcfake@gmail.com', user];
+      const ccEmails = ['flaviopcfake@gmail.com'];
 
       const attachments = imagePreviews.map((imageBase64, index) => ({
         filename: `anexo ${index + 1}.jpg`,
