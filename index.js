@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 const connection = require('./config/database');
 const multer = require('multer');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -14,6 +15,10 @@ const corsOptions = {
 };
 
 app.use(cors());
+
+app.use(bodyParser.json({ limit: '50mb' })); // Aumenta o limite do corpo da requisição para 50MB
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
 app.use(express.json());
 
 const port = 3000;
@@ -283,7 +288,7 @@ app.post('/send', async (req, res) => {
         html: updatedEmailBody,
         attachments: attachments
       });
-      
+
       if (checkResults.length > 0) {
         const updateQuery = `UPDATE EmailLog 
                              SET emailBody = ?
