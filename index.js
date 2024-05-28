@@ -258,7 +258,27 @@ app.post('/send', async (req, res) => {
               </div>
             </div>
           </div>
-          ${inform}
+          <div class="container_inform_2">
+            <div class="continer">
+              <div class="inform" id="container-inform">
+                <div class="lorem">${tipo_de_carga}</div>
+              </div>
+            </div>
+            <div class="continer">
+              <div class="inform" id="inicio-previsto">
+                <div class="lorem">${data} - ${hora}</div>
+              </div>
+            </div>
+            <div class="continer">
+              <div class="inform" id="conclusao-operacao">
+                <div class="lorem">${data}</div>
+              </div>
+            </div>
+            <div class="continer">
+              <div class="inform" id="follow-up-atual">
+                <div class="lorem">${selectedInform}</div>
+              </div>
+            </div>
         </div>
       </body>`;
       }
