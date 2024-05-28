@@ -23,8 +23,8 @@ app.use(express.json());
 
 const port = 3000;
 
-const user = "operacional@transporthos.com.br"; // Substitua pelo seu e-mail
-const pass = "TRP@!@eslog508890"; // Substitua pela sua senha
+const user = "no-reply@transporthos.com.br"; // Substitua pelo seu e-mail
+const pass = "NO@!@reply152986"; // Substitua pela sua senha
 
 app.get('/', (req, res) => res.send('Hello! World!'));
 
@@ -112,167 +112,155 @@ app.post('/send', async (req, res) => {
         }
       } else {
         updatedEmailBody = `
-          <head>
-            <style>
-              /* Reset */
-              :root {
-                --color-text-inform: #000;
-                --color-text: #454d53;
-                --color-background: #d9d9d9;
-                --color-inform: #f8be8e;
-              }
-              * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: sans-serif;
-              }
-              /* Header */
-              header {
-                overflow: hidden;
-                padding: 10px;
-                background-color: #fff;
-              }
-              header img {
-                width: 100px;
-                float: left;
-              }
-              header .titulo {
-                padding-top: 20px;
-                float: right;
-                padding-right: 400px;
-              }
-              /* Conteúdo */
-              .container_inform {
-                margin: 2% 0;
-                overflow: hidden;
-              }
-              .informs, .inform_2 {
-                width: 50%;
-                float: left;
-                box-sizing: border-box;
-              }
-              .cliente_processo, .doc {
-                background-color: #fff;
-                border: 4px solid #fff;
-                margin-bottom: 10px;
-              }
-              .cliente, .processo, .doc {
-                overflow: hidden;
-              }
-              .inform-descr, .inform-cliente {
-                width: 50%;
-                box-sizing: border-box;
-                float: left;
-                text-align: center;
-                margin-bottom: 7px;
-              }
-              .inform-descr {
-                background-color: #f8be8e;
-                padding: 5px 0;
-              }
-              .inform-cliente {
-                padding: 5px 0;
-                background-color: rgba(217, 217, 217, 0.5);
-                color: #454d53;
-              }
-              /* Segundo Painel Informações */
-              .container_inform_2 {
-                background-color: #fff;
-                overflow: hidden;
-                border: 4px solid #fff;
-              }
-              .titulo-desc {
-                padding: 2px;
-                font-weight: bold;
-                background-color: #f8be8e;
-              }
-              .continer {
-                text-align: center;
-                width: 25%;
-                float: left;
-                box-sizing: border-box;
-              }
-              .inform {
-                margin-top: 10px;
-              }
-              .lorem {
-                padding: 2px 0px;
-                background-color: rgba(217, 217, 217, 0.5);
-                color: #454d53;
-              }
-            </style>
-          </head>
-          <div class="container_principal">
-            <header>
-              <div class="logo">
-                <img src="https://github.com/flaviopcsilva/painel-transporthos/blob/main/src/assets/transporthos.png?raw=true" alt="logo-img">
-              </div>
-              <div class="titulo">
-                <h1>FOLLOW UP</h1>
-              </div>
-            </header>
-            <div class="container_inform">
-              <div class="informs">
-                <div class="cliente_processo">
-                  <div class="cliente">
-                    <div class="inform-descr">Cliente:</div>
-                    <div class="inform-cliente">${cliente}</div>
-                  </div>
-                  <div class="cnpj">
-                    <div class="inform-descr">CNPJ:</div>
-                    <div class="inform-cliente">${cnpj}</div>
-                  </div>
-                  <div class="processo">
-                    <div class="inform-descr">Processo:</div>
-                    <div class="inform-cliente">${processo}</div>
-                  </div>
+        <head>
+        <meta charset="UTF-8">
+        <style>
+          /* Reset */
+          :root {
+            --color-text-inform: #000;
+            --color-text: #454d53;
+            --color-background: #d9d9d9;
+            --color-inform: #f8be8e;
+          }
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+          }
+          /* Header */
+          header {
+            overflow: hidden;
+            padding: 10px;
+            background-color: #fff;
+          }
+          header img {
+            width: 100px;
+            float: left;
+          }
+          header .titulo {
+            padding-top: 20px;
+            float: right;
+            padding-right: 400px;
+          }
+          /* Conteúdo */
+          .container_inform {
+            margin: 2% 0;
+            overflow: hidden;
+          }
+          .informs, .inform_2 {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+          }
+          .cliente_processo, .doc {
+            background-color: #fff;
+            border: 4px solid #fff;
+            margin-bottom: 10px;
+          }
+          .cliente, .processo, .doc {
+            overflow: hidden;
+          }
+          .inform-descr, .inform-cliente {
+            width: 50%;
+            box-sizing: border-box;
+            float: left;
+            text-align: center;
+            margin-bottom: 7px;
+          }
+          .inform-descr {
+            background-color: #f8be8e;
+            padding: 5px 0;
+          }
+          .inform-cliente {
+            padding: 5px 0;
+            background-color: rgba(217, 217, 217, 0.5);
+            color: #454d53;
+          }
+          /* Segundo Painel Informações */
+          .container_inform_2 {
+            background-color: #fff;
+            overflow: hidden;
+            border: 4px solid #fff;
+          }
+          .titulo-desc {
+            padding: 2px;
+            font-weight: bold;
+            background-color: #f8be8e;
+          }
+          .continer {
+            text-align: center;
+            width: 25%;
+            float: left;
+            box-sizing: border-box;
+          }
+          .inform {
+            margin-top: 10px;
+          }
+          .lorem {
+            padding: 2px 0px;
+            background-color: rgba(217, 217, 217, 0.5);
+            color: #454d53;
+          }
+          @media print {
+            .inform-descr {
+              background-color: #f8be8e !important;
+              color: #000 !important;
+            }
+            .inform-cliente {
+              background-color: rgba(217, 217, 217, 0.5) !important;
+              color: #454d53 !important;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container_principal">
+          <header>
+            <div class="logo">
+              <img src="https://github.com/flaviopcsilva/painel-transporthos/blob/main/src/assets/transporthos.png?raw=true" alt="logo-img" width="100">
+            </div>
+            <div class="titulo">
+              <h1>FOLLOW UP</h1>
+            </div>
+          </header>
+          <div class="container_inform">
+            <div class="informs">
+              <div class="cliente_processo">
+                <div class="cliente">
+                  <div class="inform-descr">Cliente:</div>
+                  <div class="inform-cliente">${cliente}</div>
                 </div>
-                <div class="doc">
-                  <div class="inform-descr">Documento:</div>
-                  <div class="inform-cliente">${di}</div>
+                <div class="cnpj">
+                  <div class="inform-descr">CNPJ:</div>
+                  <div class="inform-cliente">${cnpj}</div>
                 </div>
               </div>
-              <div class="inform_2">
-                <div class="cliente_processo">
-                  <div class="cliente">
-                    <div class="inform-descr">Origem:</div>
-                    <div class="inform-cliente">${origem}</div>
-                  </div>
-                  <div class="processo">
-                    <div class="inform-descr">Destino:</div>
-                    <div class="inform-cliente">${destino}</div>
-                  </div>
+              <div class="doc">
+                <div class="processo">
+                  <div class="inform-descr">Processo:</div>
+                  <div class="inform-cliente">${processo}</div>
+                </div>
+                <div class="inform-descr">Documento:</div>
+                <div class="inform-cliente">${di}</div>
+              </div>
+            </div>
+            <div class="inform_2">
+              <div class="cliente_processo">
+                <div class="cliente">
+                  <div class="inform-descr">Origem:</div>
+                  <div class="inform-cliente">${origem}</div>
+                </div>
+                <div class="processo">
+                  <div class="inform-descr">Destino:</div>
+                  <div class="inform-cliente">${destino}</div>
                 </div>
               </div>
             </div>
-            <div class="container_inform_2">
-              <div class="continer">
-                <div class="titulo-desc">Container</div>
-                <div class="inform">
-                  <div class="lorem">${tipo_de_carga}</div>
-                </div>
-              </div>
-              <div class="continer">
-                <div class="titulo-desc">Inicio Previsto</div>
-                <div class="inform">
-                  <div class="lorem">${data} - ${hora}</div>
-                </div>
-              </div>
-              <div class="continer">
-                <div class="titulo-desc">Conclusão da operação</div>
-                <div class="inform">
-                  <div class="lorem">${data}</div>
-                </div>
-              </div>
-              <div class="continer">
-                <div class="titulo-desc">Follow up atual</div>
-                <div class="inform">
-                  <div class="lorem">${selectedInform}</div>
-                </div>
-              </div>
-            </div>
-          </div>`;
+          </div>
+          ${inform}
+        </div>
+      </body>`;
       }
 
       const attachments = imagePreviews.map((imageBase64, index) => ({
