@@ -79,25 +79,21 @@ app.post('/send', async (req, res) => {
         <div class="container_inform_2">
         <div class="continer">
           <div class="inform" id="container-inform">
-            <div class="titulo-desc">Container</div>
             <div class="lorem">${tipo_de_carga}</div>
           </div>
         </div>
         <div class="continer">
           <div class="inform" id="inicio-previsto">
-            <div class="titulo-desc">Inicio Previsto</div>
             <div class="lorem">${data} - ${hora}</div>
           </div>
         </div>
         <div class="continer">
           <div class="inform" id="conclusao-operacao">
-           <div class="titulo-desc">Conclusão da operação</div>
             <div class="lorem">${data}</div>
           </div>
         </div>
         <div class="continer">
           <div class="inform" id="follow-up-atual">
-            <div class="titulo-desc">Follow up atual</div>
             <div class="lorem">${selectedInform}</div>
           </div>
         </div>`;
